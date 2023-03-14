@@ -3,7 +3,7 @@ const reactionSchema = require('./Reactions')
 
 
 // Schema to create a course model
-const commentSchema = new Schema(
+const postSchema = new Schema(
   {
     text: {
       type: String,
@@ -31,6 +31,6 @@ const commentSchema = new Schema(
   }
 );
 
-const Comment = model('comment', commentSchema);
+const Post = model('post', postSchema);
 
-module.exports = Comment;
+module.exports = Post;

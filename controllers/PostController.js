@@ -2,14 +2,14 @@ const { Course, Student } = require('../models');
 
 module.exports = {
   // Get all courses
-  getCourses(req, res) {
+  getPost(req, res) {
     Course.find()
-      .then((courses) => res.json(courses))
+      .then((post) => res.json(post))
       .catch((err) => res.status(500).json(err));
   },
   // Get a course
-  getSingleCourse(req, res) {
-    Course.findOne({ _id: req.params.courseId })
+  getSinglePost(req, res) {
+    Cours.findOne({ _id: req.params.courseId })
       .select('-__v')
       .then((course) =>
         !course
@@ -19,7 +19,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Create a course
-  createCourse(req, res) {
+  createPost(req, res) {
     Course.create(req.body)
       .then((course) => res.json(course))
       .catch((err) => {
@@ -28,7 +28,7 @@ module.exports = {
       });
   },
   // Delete a course
-  deleteCourse(req, res) {
+  deletePost(req, res) {
     Course.findOneAndDelete({ _id: req.params.courseId })
       .then((course) =>
         !course
@@ -39,7 +39,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Update a course
-  updateCourse(req, res) {
+  updatePost(req, res) {
     Course.findOneAndUpdate(
       { _id: req.params.courseId },
       { $set: req.body },
